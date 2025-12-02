@@ -6,7 +6,7 @@ import lionImg from './assets/images/lion.jpg';
 import tigerImg from './assets/images/tiger.jpg';
 import elephantImg from './assets/images/elephant.jpg';
 import rhinoImg from './assets/images/rhino.jpg';
-import hippoImg from './assets/images/hippo.webp';
+import hippoImg from './assets/images/hippo.jpg';
 import sharkImg from './assets/images/shark.jpg';
 import whaleImg from './assets/images/whale.jpg';
 import polarBearImg from './assets/images/polar-bear.jpg';
