@@ -2,6 +2,19 @@ import React, { useState, useEffect } from 'react';
 import { createRoot } from 'react-dom/client';
 import { Play, X } from 'lucide-react';
 
+import lionImg from './assets/images/lion.jpg';
+import tigerImg from './assets/images/tiger.jpg';
+import elephantImg from './assets/images/elephant.jpg';
+import rhinoImg from './assets/images/rhino.jpg';
+import hippoImg from './assets/images/hippo.webp';
+import sharkImg from './assets/images/shark.jpg';
+import whaleImg from './assets/images/whale.jpg';
+import polarBearImg from './assets/images/polar-bear.jpg';
+import gorillaImg from './assets/images/gorilla.jpg';
+import giraffeImg from './assets/images/giraffe.jpg';
+import pandaImg from './assets/images/panda.jpg';
+import penguinImg from './assets/images/penguin.jpg';
+
 // --- 类型定义 ---
 interface Animal {
   id: string;
@@ -11,7 +24,7 @@ interface Animal {
   descriptionZh: string;
   descriptionEn: string;
   // 变更：不再使用数组，只使用单一图片地址，确保准确
-  imageUrl: string; 
+  imageUrl: string;
   videoSearchQuery: string;
   color: string;
 }
@@ -25,7 +38,7 @@ const ANIMALS: Animal[] = [
     emoji: '🦁',
     descriptionZh: '我是威风凛凛的草原之王！我有一头金色的长鬃毛，那是我的皇冠。我最喜欢在阳光下睡觉，但当我不开心时，我的吼声能传得很远很远！',
     descriptionEn: 'I am the majestic King of the Grasslands! I have a golden mane that looks like a crown. I love sleeping in the sun, but when I roar, you can hear me from very far away!',
-    imageUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQa4SbV4Cga_yObALoI5Qqnb4EISuBerAcJcQ&s',
+    imageUrl: lionImg,
     videoSearchQuery: 'lion documentary for kids',
     color: '#fcd34d', // Amber
   },
@@ -37,7 +50,7 @@ const ANIMALS: Animal[] = [
     descriptionZh: '我是森林里的独行侠。我身上有黑色和橙色的条纹，那是为了在树林里躲猫猫。我不像别的猫咪，我非常喜欢游泳和玩水哦！',
     descriptionEn: 'I am the lonely hero of the forest. My orange and black stripes help me play hide-and-seek in the trees. Unlike other cats, I love swimming and playing in the water!',
     // 用户指定图片
-    imageUrl: 'https://i0.wp.com/tinyhumanonboard.com/wp-content/uploads/2022/06/tigerpic-e1654549927355.jpeg?fit=889%2C580&ssl=1',
+    imageUrl: tigerImg,
     videoSearchQuery: 'tiger swimming zoo',
     color: '#fb923c', // Orange
   },
@@ -49,7 +62,7 @@ const ANIMALS: Animal[] = [
     descriptionZh: '我是陆地上最大的动物朋友。我有扇子一样的大耳朵，还有长长的鼻子，不仅能闻味道，还能像手一样抓鱼吃，或者喷水洗澡呢！',
     descriptionEn: 'I am the biggest animal friend on land. I have ears like big fans and a long trunk. My trunk can smell things, grab apples to eat, and even spray water for a bath!',
     // 用户指定图片
-    imageUrl: 'https://www.greenpeace.org/static/planet4-taiwan-stateless/2021/04/17b12b72-shutterstock_77217466-scaled-e1622618684654.jpg',
+    imageUrl: elephantImg,
     videoSearchQuery: 'elephant playing with water',
     color: '#a5f3fc', // Cyan
   },
@@ -61,7 +74,7 @@ const ANIMALS: Animal[] = [
     descriptionZh: '我是强壮的犀牛。我的鼻子上长着尖尖的角，就像童话里的独角兽一样！我的皮肤厚厚的像穿了一层盔甲，虽然我看起来笨重，但我跑起来像小火车一样快！',
     descriptionEn: 'I am a strong Rhinoceros. I have a horn on my nose just like a unicorn! My skin is thick like armor. Even though I look heavy, I can run as fast as a little train!',
     // 用户指定图片
-    imageUrl: 'https://i.epochtimes.com/assets/uploads/2023/10/id14087234-shutterstock_2080644682-e1696325000945.jpg',
+    imageUrl: rhinoImg,
     videoSearchQuery: 'rhino running wild',
     color: '#a8a29e', // Stone
   },
@@ -73,7 +86,7 @@ const ANIMALS: Animal[] = [
     descriptionZh: '我是河马，我的嘴巴超级大，打哈欠的时候能吞下一个大西瓜！我大部分时间都泡在水里避暑，但我其实不会游泳，我是走在河底的哦。',
     descriptionEn: 'I am a Hippo. My mouth is super big; when I yawn, I look like I could swallow a giant watermelon! I spend most of my time in the water to stay cool, but I actually walk on the river bottom instead of swimming.',
     // 用户指定图片
-    imageUrl: 'https://www.easytravel.co.tz/wp-content/uploads/2020/09/Hippos-Hacienda-Napoles-Zoo.jpg.webp',
+    imageUrl: hippoImg,
     videoSearchQuery: 'hippo swimming zoo',
     color: '#78716c', // Stone Dark
   },
@@ -84,7 +97,7 @@ const ANIMALS: Animal[] = [
     emoji: '🦈',
     descriptionZh: '我是海洋里的游泳冠军。虽然我是可怕的猎手，但我其实很害羞。我有一身光滑的皮肤，帮助我在蓝色的海浪里游得飞快！',
     descriptionEn: 'I am the swimming champion of the ocean. Although I have sharp teeth, I am actually very gentle. I have smooth skin that helps me swim very fast in the blue waves!',
-    imageUrl: 'https://images.unsplash.com/photo-1560275619-4662e36fa65c?auto=format&fit=crop&w=800&q=80',
+    imageUrl: sharkImg,
     videoSearchQuery: 'shark swimming underwater',
     color: '#93c5fd', // Blue
   },
@@ -95,7 +108,7 @@ const ANIMALS: Animal[] = [
     emoji: '🐋',
     descriptionZh: '我是世界上最大的动物，比恐龙还要大！我虽然住在海里，但我像你一样呼吸空气。我会喷出高高的水柱，还会唱好听的歌给大海听。',
     descriptionEn: 'I am the largest animal in the world, even bigger than dinosaurs! I live in the sea, but I breathe air just like you. I can spray water high up and sing beautiful songs to the ocean.',
-    imageUrl: 'https://images.unsplash.com/photo-1568430462989-44163eb1752f?auto=format&fit=crop&w=800&q=80',
+    imageUrl: whaleImg,
     videoSearchQuery: 'whale breaching ocean',
     color: '#60a5fa', // Blue Dark
   },
@@ -107,7 +120,7 @@ const ANIMALS: Animal[] = [
     descriptionZh: '我是北极熊，住在地球最北边的冰雪世界。虽然我的毛看起来是白色的，其实是透明的哦！我是陆地上最大的吃肉动物，最喜欢在海冰上抓鱼吃。',
     descriptionEn: 'I am a Polar Bear living in the icy world of the North Pole. My fur looks white, but it is actually transparent! I am the largest meat-eater on land, and I love hunting for fish on the sea ice.',
     // 用户指定图片
-    imageUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT7FKW4Z7Yj_CHgE5e0VEhDhb2QPyUpefWwow&s',
+    imageUrl: polarBearImg,
     videoSearchQuery: 'polar bear playing in snow',
     color: '#bae6fd', // Sky Light
   },
@@ -119,7 +132,7 @@ const ANIMALS: Animal[] = [
     descriptionZh: '我是大猩猩，是森林里最强壮的力士！我有黑色的毛发和宽宽的胸膛。虽然我看起来很凶，但我其实很温柔，最喜欢吃水果和树叶。',
     descriptionEn: 'I am a Gorilla, the strongest Hercules in the forest! I have black fur and a broad chest. Although I look tough, I am actually very gentle and love eating fruits and leaves.',
     // 用户指定图片
-    imageUrl: 'https://upload.wikimedia.org/wikipedia/commons/5/50/Male_gorilla_in_SF_zoo.jpg',
+    imageUrl: gorillaImg,
     videoSearchQuery: 'gorilla family zoo',
     color: '#525252', // Neutral
   },
@@ -131,7 +144,7 @@ const ANIMALS: Animal[] = [
     descriptionZh: '我是世界上最高的动物。我的脖子像滑梯一样长，舌头是紫色的！我可以不费力气就吃到最高树枝上最嫩的叶子，那是我最爱的零食。',
     descriptionEn: 'I am the tallest animal in the world. My neck is as long as a slide, and my tongue is purple! I can easily reach the tender leaves on the highest branches, which are my favorite snacks.',
     // 用户指定图片
-    imageUrl: 'https://static.cnbetacdn.com/article/2024/0608/f5a3ac5daab8b93.jpg',
+    imageUrl: giraffeImg,
     videoSearchQuery: 'giraffe eating leaves',
     color: '#fde047', // Yellow
   },
@@ -142,7 +155,7 @@ const ANIMALS: Animal[] = [
     emoji: '🐼',
     descriptionZh: '我是中国的国宝。我穿着黑白相间的毛衣，圆滚滚的肚子像个大皮球。我每天要在竹林里吃好多好多竹子，吃饱了就喜欢挂在树上睡觉。',
     descriptionEn: 'I am a national treasure of China. I wear a black and white coat, and my round belly looks like a big ball. I eat lots of bamboo every day, and after eating, I love to sleep in the trees.',
-    imageUrl: 'https://images.unsplash.com/photo-1564349683136-77e08dba1ef7?auto=format&fit=crop&w=800&q=80',
+    imageUrl: pandaImg,
     videoSearchQuery: 'giant panda eating bamboo',
     color: '#e2e8f0', // Slate
   },
@@ -154,7 +167,7 @@ const ANIMALS: Animal[] = [
     descriptionZh: '我住在冰天雪地的南极。虽然我是鸟，但我不会飞，走起路来摇摇摆摆。不过一旦跳进水里，我就变成了黑色的小火箭，游得超级快！',
     descriptionEn: 'I live in the icy Antarctica. Although I am a bird, I cannot fly, and I waddle when I walk. But once I jump into the water, I become a little black rocket and swim super fast!',
     // 用户指定图片
-    imageUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRnsM9yger5r_CxQlYOMaJWMYV-6kbC7AJHVQ&s',
+    imageUrl: penguinImg,
     videoSearchQuery: 'penguins walking on ice',
     color: '#cbd5e1', // Slate Light
   },
@@ -174,8 +187,8 @@ const Header = () => (
     position: 'relative',
     zIndex: 10
   }}>
-    <h1 style={{ 
-      fontSize: '2.5rem', 
+    <h1 style={{
+      fontSize: '2.5rem',
       fontWeight: 'bold',
       textShadow: '2px 2px 0px rgba(0,0,0,0.1)'
     }}>
@@ -213,19 +226,19 @@ const SimpleImage = ({ animal, style }: { animal: Animal, style: React.CSSProper
   }
 
   return (
-    <img 
-      src={animal.imageUrl} 
+    <img
+      src={animal.imageUrl}
       alt={animal.name}
       loading="lazy"
       onError={() => setHasError(true)}
-      style={style} 
+      style={style}
     />
   );
 };
 
 const AnimalCard: React.FC<{ animal: Animal; onClick: () => void }> = ({ animal, onClick }) => {
   return (
-    <div 
+    <div
       onClick={onClick}
       style={{
         backgroundColor: 'white',
@@ -243,14 +256,14 @@ const AnimalCard: React.FC<{ animal: Animal; onClick: () => void }> = ({ animal,
       onMouseLeave={(e) => e.currentTarget.style.transform = 'scale(1) translateY(0)'}
     >
       <div style={{ height: '220px', overflow: 'hidden', position: 'relative', backgroundColor: animal.color + '44' }}>
-        <SimpleImage 
+        <SimpleImage
           animal={animal}
-          style={{ 
-            width: '100%', 
-            height: '100%', 
+          style={{
+            width: '100%',
+            height: '100%',
             objectFit: 'cover',
             transition: 'transform 0.5s ease'
-          }} 
+          }}
         />
         <div style={{
           position: 'absolute',
@@ -262,10 +275,10 @@ const AnimalCard: React.FC<{ animal: Animal; onClick: () => void }> = ({ animal,
           {animal.emoji}
         </div>
       </div>
-      <div style={{ 
-        padding: '1rem', 
+      <div style={{
+        padding: '1rem',
         textAlign: 'center',
-        background: `linear-gradient(to bottom, white, ${animal.color}22)` 
+        background: `linear-gradient(to bottom, white, ${animal.color}22)`
       }}>
         <h2 style={{ fontSize: '1.8rem', color: '#333', marginBottom: '0.2rem' }}>{animal.name}</h2>
         <span style={{ fontSize: '1rem', color: '#666', fontWeight: 600 }}>{animal.englishName}</span>
@@ -284,7 +297,7 @@ const AnimalModal = ({ animal, onClose }: { animal: Animal; onClose: () => void 
   };
 
   return (
-    <div 
+    <div
       style={{
         position: 'fixed',
         top: 0,
@@ -301,7 +314,7 @@ const AnimalModal = ({ animal, onClose }: { animal: Animal; onClose: () => void 
       }}
       onClick={onClose}
     >
-      <div 
+      <div
         onClick={(e) => e.stopPropagation()}
         style={{
           backgroundColor: 'white',
@@ -343,7 +356,7 @@ const AnimalModal = ({ animal, onClose }: { animal: Animal; onClose: () => void 
         `}</style>
 
         {/* 关闭按钮 */}
-        <button 
+        <button
           onClick={onClose}
           style={{
             position: 'absolute',
@@ -370,10 +383,10 @@ const AnimalModal = ({ animal, onClose }: { animal: Animal; onClose: () => void 
           <div className="modal-image-container" style={{ width: '100%', height: '350px', background: animal.color + '33', flexShrink: 0, display: 'flex', flexDirection: 'column' }}>
             {/* 大图 */}
             <div style={{ flex: 1, position: 'relative', overflow: 'hidden', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-               <SimpleImage 
-                  animal={animal}
-                  style={{ width: '100%', height: '100%', objectFit: 'cover' }}
-               />
+              <SimpleImage
+                animal={animal}
+                style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+              />
               <div style={{
                 position: 'absolute',
                 bottom: '10px',
@@ -387,12 +400,12 @@ const AnimalModal = ({ animal, onClose }: { animal: Animal; onClose: () => void 
           </div>
 
           {/* 右侧/下方详情 */}
-          <div className="modal-details" style={{ 
-            flex: 1, 
-            padding: '2rem', 
+          <div className="modal-details" style={{
+            flex: 1,
+            padding: '2rem',
             paddingBottom: 'max(2rem, env(safe-area-inset-bottom))',
             background: '#fff',
-            display: 'flex', 
+            display: 'flex',
             flexDirection: 'column',
             justifyContent: 'flex-start'
           }}>
@@ -402,34 +415,34 @@ const AnimalModal = ({ animal, onClose }: { animal: Animal; onClose: () => void 
             </div>
 
             <div style={{ marginTop: '1.5rem', flex: 1 }}>
-              <p style={{ 
-                fontSize: '1.3rem', 
-                lineHeight: 1.6, 
-                color: '#333', 
+              <p style={{
+                fontSize: '1.3rem',
+                lineHeight: 1.6,
+                color: '#333',
                 marginBottom: '1rem',
                 fontWeight: 500
               }}>
                 {animal.descriptionZh}
               </p>
-              <p style={{ 
-                fontSize: '1.1rem', 
-                lineHeight: 1.5, 
-                color: '#64748b', 
-                fontStyle: 'italic', 
-                fontFamily: 'sans-serif' 
+              <p style={{
+                fontSize: '1.1rem',
+                lineHeight: 1.5,
+                color: '#64748b',
+                fontStyle: 'italic',
+                fontFamily: 'sans-serif'
               }}>
                 {animal.descriptionEn}
               </p>
             </div>
 
-            <div style={{ 
-              display: 'flex', 
-              gap: '1rem', 
+            <div style={{
+              display: 'flex',
+              gap: '1rem',
               marginTop: '2rem',
-              flexWrap: 'wrap' 
+              flexWrap: 'wrap'
             }}>
               {/* 视频按钮 */}
-              <button 
+              <button
                 onClick={openVideo}
                 style={{
                   flex: 1,
@@ -479,11 +492,11 @@ const App = () => {
   return (
     <div style={{ minHeight: '100vh', paddingBottom: '4rem' }}>
       <Header />
-      
-      <main style={{ 
-        maxWidth: '1200px', 
-        margin: '0 auto', 
-        padding: '0 20px' 
+
+      <main style={{
+        maxWidth: '1200px',
+        margin: '0 auto',
+        padding: '0 20px'
       }}>
         <div style={{
           display: 'grid',
@@ -491,10 +504,10 @@ const App = () => {
           gap: '30px',
         }}>
           {ANIMALS.map(animal => (
-            <AnimalCard 
-              key={animal.id} 
-              animal={animal} 
-              onClick={() => setSelectedAnimal(animal)} 
+            <AnimalCard
+              key={animal.id}
+              animal={animal}
+              onClick={() => setSelectedAnimal(animal)}
             />
           ))}
         </div>
@@ -512,9 +525,9 @@ const App = () => {
       </footer>
 
       {selectedAnimal && (
-        <AnimalModal 
-          animal={selectedAnimal} 
-          onClose={() => setSelectedAnimal(null)} 
+        <AnimalModal
+          animal={selectedAnimal}
+          onClose={() => setSelectedAnimal(null)}
         />
       )}
     </div>
